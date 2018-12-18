@@ -1,12 +1,15 @@
-from database import generate_tables, dummy_projects
-from extractor import extract_articles
+from database import generate_tables, dummy_projects, clean_tables
+from extractor import extract_articles, extract_visits
 
 MAX_PROJECTS = 20
 
+
 def main():
     generate_tables()
-    dummy_projects(MAX_PROJECTS1)
+    clean_tables()
+    dummy_projects(MAX_PROJECTS)
     extract_articles(MAX_PROJECTS)
-    print("nani")
+    extract_visits()
+
 if __name__ == '__main__':
     main()

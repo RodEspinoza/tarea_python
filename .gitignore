@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 
 test.db
-test%2Farticles.csv
+*.csv
 
 #OSX
 .DS_Store
