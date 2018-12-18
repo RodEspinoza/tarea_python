@@ -18,6 +18,7 @@ def generate_tables():
     cur.close()
     conn.close()
 
+
 def dummy_projects():
     conn = sqlite3.connect("test.db")
     cur = conn.cursor()
