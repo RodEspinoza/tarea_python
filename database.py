@@ -22,8 +22,16 @@ def generate_tables():
 def dummy_projects():
     conn = sqlite3.connect("test.db")
     cur = conn.cursor()
-    for i in range(20):
+    for i in range(MAX_PROJECTS):
         cur.execute("insert into project (projectid) values({})".format(i))
     conn.commit()
+    cur.close()
+    conn.close()
+
+def insert_articles(project, token, year, country_name):
+    conn = sqlite3.connect("test.db")
+    cur = conn.cursor()
+    query = "insert into articles (project, token, year, country_name) values({},{},{},'{}')".format(project, token, year, country_name)
+    cur.execute(query)
     cur.close()
     conn.close()
