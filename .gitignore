@@ -1,0 +1,10 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+test.db
+test%2Farticles.csv
+
+#OSX
+.DS_Store
