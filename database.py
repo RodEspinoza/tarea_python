@@ -74,5 +74,25 @@ def get_top_ten_proyects():
     cur.close()
     conn.close()
 
+
+
+def get_top_by_visit_country(visit_country):
+        conn = get_connection()
+        cur = conn.cursor()
+        query = "select pj.projectid, (select count(v.rowid) as row_count from articles as ar join visits as v on v.page_path LIKE '%' || ar.token || '%'  where ar.project = pj.projectid and v.visit_country = '{}') as total_visits  from project as pj order by total_visits desc limit 10".format(visit_country)
+        cur.execute(query)
+        rows = cur.fetchall()
+        print("Top ten projects by country: {}".format(visit_country))
+        for row in rows:
+            print("Project_id :  {}, Total_visits : {}".format(row[0], row[1]))
+        cur.close()
+        conn.close()
+
+
+
+def custom_query():
+    #work withs utm codes
+    return ""
+
 def get_connection():
     return sqlite3.connect(database_name)
